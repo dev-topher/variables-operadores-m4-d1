@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura | CRAS-1296</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input[type="number"] {
+            width: 100px;
+        }
+        #resultado {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperatura | CRAS-1296</h1>
+    <label for="celsius">Ingrese la temperatura en grados Celsius:</label>
+    <input type="number" id="celsius">
+    <br>
+    <button onclick="convertirTemperatura()">Convertir</button>
+    <div id="resultado"></div>
+
+    <script>
+        function convertirTemperatura() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            const kelvin = celsius + 273.15;
+            const fahrenheit = (celsius * 9 / 5) + 32;
+            document.getElementById('resultado').innerHTML = `
+                <p>Temperatura en grados Kelvin: ${kelvin}</p>
+                <p>Temperatura en grados Fahrenheit: ${fahrenheit}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

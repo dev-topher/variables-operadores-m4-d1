@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Días | CRAS-1296</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input[type="number"] {
+            width: 100px;
+        }
+        #resultado {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Días | CRAS-1296</h1>
+    <label for="dias">Ingrese la cantidad de días:</label>
+    <input type="number" id="dias">
+    <br>
+    <button onclick="calcularEquivalenteDias()">Calcular</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularEquivalenteDias() {
+            const dias = parseInt(document.getElementById('dias').value);
+            const años = Math.floor(dias / 365);
+            const semanas = Math.floor((dias % 365) / 7);
+            const diasRestantes = (dias % 365) % 7;
+            document.getElementById('resultado').innerHTML = `
+                <p>Equivalente en años: ${años}</p>
+                <p>Semanas restantes: ${semanas}</p>
+                <p>Días restantes: ${diasRestantes}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
